@@ -16,7 +16,7 @@ NEWSPIDER_MODULE = 'amazeviews.spiders'
 
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
-USER_AGENT = 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:49.0) Gecko/20100101 Firefox/49.0'
+USER_AGENT = 'amazeviews'
 
 FEED_EXPORT_FIELDS = ['tld', 'book_id', 'amz_id', 'author_name', 'rating', 'author_url', 'text']
 
