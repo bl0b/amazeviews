@@ -25,7 +25,7 @@ class Reviews(scrapy.Spider):
     def parse(self, response):
         url = response.url
         print "Parsing", url
-        for i in extract_items(response):
+        for i in extract_items(self, response):
             yield i
         next_page = find_link_to_next_page(response)
         if next_page:

@@ -39,12 +39,11 @@ def get_book_id(response):
     return response.url.split('/')[-2]
 
 
-
-def make_item(response, review):
+def make_item(spider, response, review):
     ret = Review()
     ret['amz_id'] = get_id(review)
     ret['author_name'] = get_author_name(review)
-    ret['author_url'] = get_author_url(review)
+    ret['author_url'] = spider.make_url(response.url, get_author_url(review))
     ret['rating'] = get_rating(review)
     ret['book_id'] = get_book_id(response)
     ret['tld'] = get_tld(response)
@@ -52,8 +51,8 @@ def make_item(response, review):
     return ret
 
 
-def extract_items(response):
-    return map(lambda i: make_item(response, i), find_reviews(response))
+def extract_items(spider, response):
+    return map(lambda i: make_item(spider, response, i), find_reviews(response))
 
 
 def get_review_page_links(response):
